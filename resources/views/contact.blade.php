@@ -1,14 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Laravel</title>
-
-</head>
-<body>
-
-       <h1>This Is Contact Page</h1>
+@extends('layouts.app')
 
 
+@section('content')
 
-</body>
-</html>
+
+    @if(count($people))
+
+        <ul>
+        @foreach($people as $person)
+
+            <li>{{$person}}</li>
+
+        @endforeach
+        </ul>
+
+
+    @endif
+
+
+@stop
+
+
+
+@section('footer')
+
+
+
+@stop

@@ -46,8 +46,6 @@ Route::get('/contact','PostsController@contact');
 
 Route::get('/post/{id}','PostsController@showPost');
 
-$Route::anyting;lll
-
 
 
 

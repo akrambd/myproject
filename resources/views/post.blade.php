@@ -1,14 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Laravel</title>
-
-</head>
-<body>
-
-<h1>Tis IS Post Page {{$id}}</h1>
+@extends('layouts.app')
 
 
+@section('content')
 
-</body>
-</html>
+    <h1>This is Post Page</h1>
+
+
+@stop
+
+
+
+@section('footer')
+
+
+
+@stop
