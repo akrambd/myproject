@@ -1,5 +1,9 @@
 <?php
 use App\Post;
+use App\User;
+use App\Role;
+use App\Image;
+
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -168,8 +172,116 @@ Route::get('/softDelete', function() {
 //});
 
 
+/*
+|--------------------------------------------------------------------------
+| Eloquent
+|--------------------------------------------------------------------------
+|
+*/
+// Relationship 1 to 1 (user post)
+
+//Route::get('/user/{id}/post', function($id){
+//
+////    return User::find($id)->post;
+//
+//    return User::find($id)->post->title;
+//
+//});
+//
+//
+//// Relationship 1 to 1 inverse (user post)
+//
+//Route::get('/post/{id}/user', function($id){
+//
+//
+//    return Post::find($id)->user;
+//
+//
+//});
+//
+//
+//// Relationship 1 to many relationship (user post)
+//
+//Route::get('/posts/{id}', function($id){
+//
+//
+//    $user= User::find($id);
+//
+//    foreach($user->posts as $post){
+//
+//        echo $post->title."<br>";
+//    }
+//
+//
+//});
+
+////Relationship Many to Many relationship (user role)
+//
+//
+//Route::get('/user/{id}/role', function($id){
+//
+//    $user =  User::find($id);
+//
+//
+//    foreach ($user->roles as $role){
+//
+//        echo $role->name."<br>";
+//
+//    }
+//
+//
+//
+//});
 
 
+//Relationship Many to Many relationship (role to user)
+
+
+Route::get('/role/{id}/user', function($id){
+
+    $role =  Role::find($id);
+
+
+    foreach ($role->users as $user){
+
+        echo $user->name."<br>";
+
+    }
+
+
+
+});
+
+
+//Relationship 1 to 1 Polymorphic (inage,user,post)
+
+Route::get('user/images', function(){
+
+    $user= User::find(1);
+
+    foreach ($user->images as $image){
+
+        return $image->url."<br>";
+
+    }
+
+
+});
+
+//Relationship 1 to 1 Polymorphic (inage,user,post)
+
+Route::get('post/images', function(){
+
+    $post= Post::find(2);
+
+    foreach ($post->images as $image){
+
+        return $image."<br>";
+
+    }
+
+
+});
 
 
 
