@@ -146,14 +146,14 @@ Route::get('/', function () {
 //});
 
 
-Route::get('/softDelete', function() {
-
-    Post::where('admin',0)->first()->delete();
-
-//    Post::find(1)->delete();
-
-
-});
+//Route::get('/softDelete', function() {
+//
+//    Post::where('admin',0)->first()->delete();
+//
+////    Post::find(1)->delete();
+//
+//
+//});
 
 //Route::get('/readSoftDelete', function() {
 //
@@ -237,38 +237,38 @@ Route::get('/softDelete', function() {
 //Relationship Many to Many relationship (role to user)
 
 
-Route::get('/role/{id}/user', function($id){
-
-    $role =  Role::find($id);
-
-
-    foreach ($role->users as $user){
-
-        echo $user->name."<br>";
-
-    }
-
-
-
-});
+//Route::get('/role/{id}/user', function($id){
+//
+//    $role =  Role::find($id);
+//
+//
+//    foreach ($role->users as $user){
+//
+//        echo $user->name."<br>";
+//
+//    }
+//
+//
+//
+//});
 
 
 //Relationship 1 to 1 Polymorphic (inage,user,post)
 
-Route::get('user/images', function(){
+//Route::get('user/images', function(){
+//
+//    $user= User::find(1);
+//
+//    foreach ($user->images as $image){
+//
+//        return $image->url."<br>";
+//
+//    }
+//
+//
+//});
 
-    $user= User::find(1);
-
-    foreach ($user->images as $image){
-
-        return $image->url."<br>";
-
-    }
-
-
-});
-
-//Relationship 1 to 1 Polymorphic (inage,user,post)
+//Relationship 1 to 1 Polymorphic (image,user,post)
 
 Route::get('post/images', function(){
 
@@ -283,7 +283,7 @@ Route::get('post/images', function(){
 
 });
 
-
+Route::resource('/posts', 'PostsController');
 
 /*
 |--------------------------------------------------------------------------
